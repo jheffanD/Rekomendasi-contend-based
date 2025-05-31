@@ -13,6 +13,9 @@ def recommend():
         return jsonify({"error": "Title is required"}), 400
 
     result = get_recommendations(title)
+    if isinstance(result, dict) and "error" in result:
+        return jsonify(result), 404
+    
     return jsonify(result)
 
 if __name__ == "__main__":
