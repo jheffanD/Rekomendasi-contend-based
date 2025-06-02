@@ -12,7 +12,7 @@ export default function Side2() {
   return (
     <div className="bg-white">
       <Input />
-      <div className="relative flex flex-col items-center gap-10  justify-center bg-primary pt-10 py-8">
+      <div className="relative flex flex-col items-center gap-10 rounded-lg  justify-center bg-primary pt-10 py-8">
         <h2 className=" text-3xl font-bebas text-center  text-black">
           movie example
         </h2>

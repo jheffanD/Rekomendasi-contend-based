@@ -3,7 +3,7 @@ import Spay22 from "../assets/spay22.jpg";
 
 export default function Side3() {
   return (
-    <div className="h-auto w-auto flex my-10 items-center bg-gray-300 justify-center">
+    <div className="h-auto w-auto flex my-10 items-center rounded-lg bg-gray-300 justify-center">
       <div className="bg-primary my-10 rounded-lg shadow-lg h-[610px] w-[1200px]">
         <div className="h-[600px] w-[1200px] flex flex-col justify-center items-center px-32 ">
           <h2 className=" text-3xl font-bebas text-center  text-black">
