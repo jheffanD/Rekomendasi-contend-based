@@ -1,6 +1,5 @@
 import Logo from "../assets/logo.png";
-
-
+ 
 const Navbar = () => {
   return (
     <nav className="flex items-center justify-between px-8   text-black">
