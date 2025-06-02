@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './Font/one\ piece\ font.ttf';
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -19,6 +21,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@font-face {
+  font-family: 'OnePiece';
+  src: local("OnePiece"), url('./Font/one_piece_font.ttf'), format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 
 a {
   font-weight: 500;
