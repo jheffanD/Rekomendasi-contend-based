@@ -1,6 +1,7 @@
 import Back from "../assets/bg.jpg";
 import Navbar from "../components/navbar.jsx";
 import Name from "../components/name.jsx";
+
 const Side1 = () => {
   return (
     <div
@@ -12,9 +13,10 @@ const Side1 = () => {
         width: "98.80vw",
         height: "100vh",
       }}
+      className="-mt-24 border"
     >
       <div className="h-full w-full">
-        <Navbar />
+        {/* <Navbar /> */}
         <Name />
       </div>
     </div>

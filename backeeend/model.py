@@ -30,7 +30,9 @@ similarity = cosine_similarity(feature_vectors)
 list_of_all_titles = df['title'].tolist()
 
 
-def get_recommendations(movie_title, top_n=10):
+def get_recommendations(movie_title, top_n=12, fields=None):
+    import difflib
+
     find_close_match = difflib.get_close_matches(movie_title, list_of_all_titles)
 
     if not find_close_match:
@@ -45,11 +47,29 @@ def get_recommendations(movie_title, top_n=10):
     recommendations = []
     for movie in sorted_similar_movies[1:top_n+1]:
         index = movie[0]
-        title_from_index = df[df.index == index]['title'].values[0]
+        movie_data = df[df.index == index].iloc[0]  # Ambil baris movie
         score = movie[1]
-        recommendations.append({
-            "title": title_from_index,
-            "score": float(score)
-        })
+
+        # Jika fields None, default hanya title + score
+        if fields is None:
+            rec = {
+                "title": movie_data['title'],
+                "genres": movie_data['genres'],
+                "vote_average": movie_data['vote_average'], 
+                "popularity": movie_data['popularity'],
+                "original_title": movie_data['original_title'],
+                "score": float(score)
+            }
+        else:
+            rec = {"score": float(score)}
+            for field in fields:
+                # Pastikan kolom ada di df
+                if field in df.columns:
+                    rec[field] = movie_data[field]
+                else:
+                    rec[field] = None  # Jika kolom tidak ditemukan
+                
+        recommendations.append(rec)
 
     return recommendations
+
