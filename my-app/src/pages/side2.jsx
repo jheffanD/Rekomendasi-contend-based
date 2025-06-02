@@ -18,11 +18,11 @@ export default function Side2() {
         </h2>
         <div className="flex flex-wrap gap-10 jus">
           {image.map((img, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div key={index} className="flex flex-col  items-center">
               <img
                 src={img}
                 alt={title[index]}
-                className="w-[45vh] object-cover rounded-lg"
+                className="w-[45vh] shadow-black shadow-2xl object-cover rounded-lg"
               />
               <p className="font-bold text-xl mt-2">{title[index]}</p>
               <p className="font-bold text-sm">{price[index]}</p>
