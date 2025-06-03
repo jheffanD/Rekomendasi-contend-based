@@ -4,12 +4,14 @@ import SkeletonCard from "../components/SkeletonCard";
 import { useEffect, useState } from "react";
 import { Getrekomendasi } from "../api/Route";
 import { useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function RecommendationResult() {
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const title = searchParams.get("title");
 
@@ -40,7 +42,7 @@ export default function RecommendationResult() {
   }, [title]);
 
   return (
-    <div className="w-[79rem] h-[170vh] -mt-24 bg-gray-100 flex flex-col items-center  py-24">
+    <div className="w-[79rem] h-[185vh]  bg-gray-100 flex flex-col items-center  py-24">
       <h1 className="text-3xl font-bold mb-10  text-center text-gray-800">
         Hasil Rekomendasi
       </h1>
@@ -65,15 +67,12 @@ export default function RecommendationResult() {
               className="bg-white ml-10 rounded-2xl w-80 p-4 shadow hover:shadow-lg transition"
             >
               <p className="text-lg font-bold text-primary text-center text-gray-800">
-                {item.title}
+                {item.original_title}
               </p>
               <p className="text-sm text-gray-600 mt-1 line-clamp-3">
                 Rating {item.vote_average}
               </p>
-              <p className="text-black text-sm mt-2">
-                {" "}
-                Genre : {item.genres}
-              </p>
+              <p className="text-black text-sm mt-2"> Genre : {item.genres}</p>
               <p className="text-black text-sm mt-2">
                 {" "}
                 Jumlah penonton : {item.popularity}
@@ -92,6 +91,14 @@ export default function RecommendationResult() {
           Tidak ada hasil yang ditemukan.
         </p>
       )}
+      <div className="mt-10">
+        <button
+          onClick={() => navigate("/")}
+          className="text-primary font-bold font-bebas"
+        >
+          Kembali
+        </button>
+      </div>
     </div>
   );
 }

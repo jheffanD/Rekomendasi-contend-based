@@ -27,7 +27,7 @@ export default function PlaceholdersAndVanishInputDemo() {
     console.log("submitted");
   };
 
-  console.log(`/result?title=${encodeURIComponent(title)}`);
+ 
 
   return (
     <div className="h-[15rem] flex flex-col justify-center items-center px-4">
